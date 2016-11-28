@@ -3,4 +3,4 @@ author: MegaOS
 description: A BlockUpdate plugin that make block stand still
 main: blockupdate\Main
 version: 1.0
-api: 2.1.0
+api: [2.0.0, 2.1.0]
