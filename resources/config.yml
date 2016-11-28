@@ -1,2 +1,3 @@
 # Blocks which shall be allowed to update
 Allow-Update: [11,101,102,85,139,183,184,185,186,187]
+Block-Leave-Decay: true
