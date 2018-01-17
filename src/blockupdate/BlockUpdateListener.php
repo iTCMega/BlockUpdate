@@ -1,4 +1,5 @@
 <?php
+
 namespace blockupdate;
 
 use pocketmine\event\Listener;
