@@ -4,7 +4,6 @@ namespace blockupdate;
 
 use pocketmine\block\Block;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
 
 class Main extends PluginBase{
 
