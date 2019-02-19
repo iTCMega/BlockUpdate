@@ -8,13 +8,13 @@ use pocketmine\plugin\PluginBase;
 class Main extends PluginBase{
 
     private static $instance = null;
-    private $bypassBlocks = [];
-    private $blockLeaveDecay = true;
+    private $bypassBlocks = []; //config array
+    private $blockLeaveDecay = true; 
 
     public function onEnable(){
 	$this->saveResource('config.yml');
 	self::$instance = $this;
-	$this->bypassBlocks = $this->getConfig()->get('Allow-Update');
+	$this->bypassBlocks = $this->getConfig()->get('Allow-Update'); //Config array
         $this->blockLeaveDecay = $this->getConfig()->get('Block-Leave-Decay');
         $this->getServer()->getPluginManager()->registerEvents(new BlockUpdateListener(), $this);
 	$this->getServer()->getLogger()->info("[BU] Enable!");
