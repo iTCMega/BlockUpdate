@@ -1,5 +1,5 @@
 name: BlockUpdate
-author: SBS (Minenet, Salmon, Landy)
+author: SBS (Mynet, Salmon, Landy)
 description: A BlockUpdate plugin that disables blockupdate
 main: blockupdate\Main
 version: 1.0
