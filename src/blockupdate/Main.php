@@ -1,34 +1,43 @@
 <?php
 
+declare(strict_types=1);
+
 namespace blockupdate;
 
 use pocketmine\block\Block;
 use pocketmine\plugin\PluginBase;
+use pocketmine\event\Listener;
+use pocketmine\utils\TextFormat;
+use pocketmine\Server;
+use pocketmine\utils\Config;
 
-class Main extends PluginBase{
+class Main extends PluginBase implements Listener{
 
     private static $instance = null;
-    private $bypassBlocks = [];
-    private $blockLeaveDecay = true;
+    private $bypassBlocks = []; //config array
+    private $blockLeaveDecay = true; 
+    
+    private const PREFIX = TextFormat::GREEN . "BlockUpdate" . TextFormat::GOLD . " > ";
 
     public function onEnable(){
-	$this->saveResource('config.yml');
+        @mkdir($this->getDataFolder());
+        $this->saveDefaultConfig();
 	self::$instance = $this;
-	$this->bypassBlocks = $this->getConfig()->get('Allow-Update');
-        $this->blockLeaveDecay = $this->getConfig()->get('Block-Leave-Decay');
-        $this->getServer()->getPluginManager()->registerEvents(new BlockUpdateListener(), $this);
-	$this->getServer()->getLogger()->info("[BU] Enable!");
-    }
-
-    public static function getInstance(){
-        return self::$instance;
-    }
-
-    public function canBypass(Block $block){
+        $this->bypassBlocks = $this->getConfig()->get("Allow-Update"); //Config array
+        $this->blockLeaveDecay = $this->getConfig()->get("Block-Leave-Decay");
+	$this->getServer()->getPluginManager()->registerEvents(new BlockUpdateListener(), $this);
+        $this->getLogger()->info(self:PREFIX . "Enabled!");
+   }
+	
+   public static function getInstance(){
+	return self::$instance;
+   }
+	
+   public function canBypass(Block $block){
         return in_array($block->getId(), $this->bypassBlocks);
-    }
-
-    public function blockLeaveDecay(){
+   }
+	
+   public function blockLeaveDecay(){
         return $this->blockLeaveDecay;
-    }
+   }
 }
