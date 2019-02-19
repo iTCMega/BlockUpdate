@@ -1,8 +1,8 @@
 name: BlockUpdate
-author: MyNET
-description: A BlockUpdate plugin that make block stand still
+author: SBS (Minenet, Salmon, Landy)
+description: A BlockUpdate plugin that disables blockupdate
 main: blockupdate\Main
-version: 1.3
+version: 1.0
 api: 
 - 3.0.0
 - 3.0.0-ALPHA7
