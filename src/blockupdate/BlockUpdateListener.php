@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace blockupdate;
 
 use pocketmine\event\Listener;
@@ -15,9 +17,9 @@ class BlockUpdateListener implements Listener{
      * @ignoreCancelled true
      */
     public function onBlockUpdate(BlockUpdateEvent $event){
-	      if(!Main::getInstance()->canBypass($event->getBlock())){
-	          $event->setCancelled();
-	      }
+	 if(!Main::getInstance()->canBypass($event->getBlock())){
+	     $event->setCancelled();
+	 }
     }
 
     public function onLeaveDecay(LeavesDecayEvent $event){
