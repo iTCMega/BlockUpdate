@@ -16,8 +16,6 @@ class Main extends PluginBase implements Listener{
     private static $instance = null;
     private $bypassBlocks = []; //config array
     private $blockLeaveDecay = true; 
-    
-    private const PREFIX = TextFormat::GREEN . "BlockUpdate" . TextFormat::GOLD . " > ";
 
     public function onEnable(){
         @mkdir($this->getDataFolder());
@@ -26,7 +24,7 @@ class Main extends PluginBase implements Listener{
         $this->bypassBlocks = $this->getConfig()->get("Allow-Update"); //Config array
         $this->blockLeaveDecay = $this->getConfig()->get("Block-Leave-Decay");
 	$this->getServer()->getPluginManager()->registerEvents(new BlockUpdateListener(), $this);
-        $this->getLogger()->info(self:PREFIX . "Enabled!");
+        $this->getLogger()->info("Enabled!");
    }
 	
    public static function getInstance(){
