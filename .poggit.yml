@@ -3,5 +3,5 @@ branches:
 - master
 projects:
   BlockUpdate:
-    path: "src/blockupdate"
+    path: ""
 ...
